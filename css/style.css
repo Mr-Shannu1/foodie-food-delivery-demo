@@ -150,3 +150,12 @@ button {
   background: #1e1e1e;
   color: white;
 }
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+}
