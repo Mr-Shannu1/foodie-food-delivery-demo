@@ -31,11 +31,16 @@ function loadRestaurants() {
     .filter(r => r.name.toLowerCase().includes(search.value.toLowerCase()))
     .forEach(r => {
       restaurantList.innerHTML += `
-        <div class="card">
-          <h3>${r.name}</h3>
-          <p>⭐ ${r.rating} • ${r.time}</p>
-          <button onclick="openMenu(${r.id})">View Menu</button>
-        </div>`;
+        restaurantList.innerHTML += `
+  <div class="card" onclick="openMenu(${r.id})">
+    <img src="https://source.unsplash.com/400x300/?indian,food">
+    <div class="card-content">
+      <h3>${r.name}</h3>
+      <p>⭐ ${r.rating} • ${r.time}</p>
+      <p>${r.city}</p>
+    </div>
+  </div>
+`;;
     });
 }
 
