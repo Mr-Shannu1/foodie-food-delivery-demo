@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foodie</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h2>🍔 Foodie</h2>
+  <select id="locationSelect"></select>
+  <button onclick="toggleTheme()">🌗</button>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<input id="search" placeholder="Search restaurants">
+
+<div class="filters">
+  <select id="ratingFilter">
+    <option value="">Rating</option>
+    <option value="4">4+ ⭐</option>
+    <option value="4.5">4.5+ ⭐</option>
+  </select>
+
+  <select id="typeFilter">
+    <option value="">Food Type</option>
+    <option>Veg</option>
+    <option>Non-Veg</option>
+  </select>
+</div>
+
+<div id="restaurantList"></div>
+
+<div id="cart" class="cart"></div>
+
+<!-- MENU MODAL -->
+<div id="menuModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="closeMenu()">×</span>
+    <h2 id="menuTitle"></h2>
+    <div id="menuItems"></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>
