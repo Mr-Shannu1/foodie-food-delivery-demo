@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>Add Restaurant</h2>
+
+<input id="rName" placeholder="Restaurant Name">
+<input id="rCity" placeholder="City">
+<input id="rRating" placeholder="Rating">
+<button onclick="addRestaurant()">Add</button>
+
+<script src="js/data.js"></script>
+<script>
+function addRestaurant() {
+  const list = JSON.parse(localStorage.getItem("restaurants")) || restaurants;
+
+  list.push({
+    id: Date.now(),
+    name: rName.value,
+    city: rCity.value,
+    rating: rRating.value,
+    time: "30-40 mins",
+    cuisine: ["Multi"],
+    menu: []
+  });
+
+  localStorage.setItem("restaurants", JSON.stringify(list));
+  alert("Restaurant added");
+}
+</script>
+
+</body>
+</html>
