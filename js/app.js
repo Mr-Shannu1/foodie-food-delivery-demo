@@ -51,11 +51,15 @@ function openMenu(id) {
 
   r.menu.forEach(item => {
     menuItems.innerHTML += `
-      <div class="card">
-        <p>${item.name} (${item.type})</p>
-        <p>₹${item.price}</p>
-        <button onclick='addToCart(${JSON.stringify(item)})'>ADD</button>
-      </div>`;
+  <div class="card">
+    <div class="card-content">
+      <h3>${item.name}</h3>
+      <p>${item.type}</p>
+      <p>₹${item.price}</p>
+      <button onclick='addToCart(${JSON.stringify(item)})'>ADD</button>
+    </div>
+  </div>
+`;
   });
 
   menuModal.classList.remove("hidden");
