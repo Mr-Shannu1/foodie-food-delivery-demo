@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>Choose Payment Method</h2>
+
+<div class="card">
+  <label><input type="radio" name="pay"> UPI</label><br>
+  <label><input type="radio" name="pay"> Card</label><br>
+  <label><input type="radio" name="pay"> Wallet</label><br>
+  <label><input type="radio" name="pay"> Cash on Delivery</label>
+</div>
+
+<button onclick="payNow()">Pay Now</button>
+
+<script>
+function payNow() {
+  const order = JSON.parse(localStorage.getItem("pendingOrder"));
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+  orders.push(order);
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  localStorage.removeItem("pendingOrder");
+  localStorage.removeItem("cart");
+
+  alert("Order placed successfully 🎉");
+  window.location.href = "orders.html";
+}
+</script>
+
+</body>
+</html>
