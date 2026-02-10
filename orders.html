@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Orders</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>My Orders</h2>
+<div id="orders"></div>
+
+<script>
+const orders = JSON.parse(localStorage.getItem("orders")) || [];
+const div = document.getElementById("orders");
+
+if (!orders.length) {
+  div.innerHTML = "<p>No orders yet</p>";
+}
+
+orders.reverse().forEach(o => {
+  div.innerHTML += `
+    <div class="card">
+      <p><strong>${o.date}</strong></p>
+      <p>Location: ${o.location}</p>
+      <p>Total: ₹${o.total}</p>
+      <ul>
+        ${o.items.map(i => `<li>${i.name}</li>`).join("")}
+      </ul>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
